@@ -1,6 +1,7 @@
 package com.product.dtos;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public record ProductRequest(
         Long productId,
@@ -10,5 +11,6 @@ public record ProductRequest(
         String category,
         BigDecimal price,
         Integer weightInGrams,
-        String description
+        String description,
+        List<ProductVariantRequest> variants
 ) {}
