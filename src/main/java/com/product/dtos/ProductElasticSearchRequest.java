@@ -1,6 +1,6 @@
 package com.product.dtos;
 
-public record ProductElasticeSearchRequest(
+public record ProductElasticSearchRequest(
         String keyword,
         String brand,
         String category,
