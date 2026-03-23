@@ -7,6 +7,10 @@ public record ProductVariantRequest(
         String color,
         String configuration,
         BigDecimal price,
-        Integer stock
+        Integer weightInGrams,
+        String description,
+        String variantSku,
+        Integer stock,
+        Boolean active
 ) {
 }
