@@ -11,6 +11,8 @@ import org.springframework.web.ErrorResponseException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.net.URI;
 import java.time.Instant;
@@ -24,6 +26,28 @@ public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     private ReadErrorProperties readErrorProperties;
+
+    @ExceptionHandler({NoHandlerFoundException.class, NoResourceFoundException.class})
+    public ProblemDetail handleNotFound(Exception ex) {
+
+        ProblemDetail problem = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+
+        problem.setTitle("Resource Not Found");
+        problem.setDetail("The requested endpoint does not exist");
+
+        // Custom fields (very useful)
+        problem.setProperty("timestamp", java.time.LocalDateTime.now());
+
+        if (ex instanceof NoHandlerFoundException e) {
+            problem.setProperty("path", e.getRequestURL());
+            problem.setProperty("method", e.getHttpMethod());
+        }
+
+        if (ex instanceof NoResourceFoundException e) {
+            problem.setProperty("path", e.getResourcePath());
+        }
+        return problem;
+    }
 
     @ExceptionHandler(NoStockAvailableException.class)
     public ProblemDetail handleNoStockAvailableException(
