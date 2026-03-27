@@ -1,5 +1,6 @@
 package com.product.dtos;
 
+import java.time.Instant;
 import java.util.List;
 
 public record ProductRequest(
@@ -8,5 +9,8 @@ public record ProductRequest(
         String name,
         String brand,
         String category,
-        List<ProductVariantRequest> variants
+        List<ProductVariantRequest> variants,
+        Boolean active,
+        Instant createdAt,
+        Instant updatedAt
 ) {}

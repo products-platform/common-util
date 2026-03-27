@@ -3,6 +3,7 @@ package com.product.dtos;
 import java.math.BigDecimal;
 
 public record ProductVariantRequest(
+        Long variantId,
         String size,
         String color,
         String configuration,
