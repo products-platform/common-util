@@ -1,6 +1,7 @@
-package com.product.dtos;
+package com.product.dtos.order;
 
 public record OrderItemRequest(
         Long productId,
+        Long variantId,
         Integer quantity
 ) {}

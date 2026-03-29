@@ -1,7 +1,10 @@
 package com.product.dtos;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.math.BigDecimal;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public record ProductVariantRequest(
         Long variantId,
         String size,
@@ -11,7 +14,6 @@ public record ProductVariantRequest(
         Integer weightInGrams,
         String description,
         String variantSku,
-        Integer stock,
         Boolean active
 ) {
 }

@@ -1,4 +1,4 @@
-package com.product.dtos;
+package com.product.dtos.order;
 
 import com.product.enums.OrderStatus;
 

@@ -1,4 +1,4 @@
-package com.product.dtos;
+package com.product.dtos.order;
 
 import java.math.BigDecimal;
 

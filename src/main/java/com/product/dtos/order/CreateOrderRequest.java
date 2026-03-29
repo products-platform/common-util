@@ -1,9 +1,9 @@
-package com.product.dtos;
+package com.product.dtos.order;
 
 import java.util.List;
 
 public record CreateOrderRequest(
-        Long userId,
-        String customerEmail,
+        Long customerId,
+        Long addressId,
         List<OrderItemRequest> items
 ) {}
