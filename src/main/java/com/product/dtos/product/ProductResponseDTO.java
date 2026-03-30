@@ -10,4 +10,7 @@ public record ProductResponseDTO(
         Long variantId,
         BigDecimal price
 ) {
+    public static ProductResponseDTO empty(Long productId) {
+        return new ProductResponseDTO(productId, null, null, null, 10L, new BigDecimal(10));
+    }
 }

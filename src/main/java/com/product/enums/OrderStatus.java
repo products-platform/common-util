@@ -8,5 +8,7 @@ public enum OrderStatus {
     DELIVERED,
     RESERVED,
     INVENTORY_RESERVED,
-    PENDING
+    PENDING,
+    RETURNED,
+    RELEASED
 }

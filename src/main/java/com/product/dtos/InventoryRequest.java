@@ -1,7 +1,10 @@
 package com.product.dtos;
 
 public record InventoryRequest(
-        String variantSku,
-        Long locationId,
-        Integer quantity
-) {}
+        Long productId,
+        Long variantId,
+        Integer quantity,
+        Integer locationId,
+        String variantName
+) {
+}
